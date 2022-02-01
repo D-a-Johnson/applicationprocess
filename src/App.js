@@ -6,7 +6,7 @@ import {v4 as uuidv4} from 'uuid';
 const LOCAL_STORAGE_KEY = 'applicantsApp'
 
 function App() {
-  const [applicants, setApplicants] = useState([])
+  const [applicants, setApplicants] = useState([{name: 'asasdf', job: 'asdf', stage: 1, id: uuidv4()}])
   const applicantName = useRef()
   const applicantJob = useRef()
   //{id: 1, name: 'Derek', job: 'workswise',stage: 1}
@@ -44,8 +44,9 @@ function App() {
    }
 
   return ( //displays applicant list
+    
     <>
-    <Dashboard />
+    <Dashboard applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}/>
     <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}></ApplicantList>
     <header>
       Name <input ref={applicantName} type="text" /> <br/>

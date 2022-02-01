@@ -30,20 +30,26 @@ function App() {
     applicantJob.current.value = null
   }
 
-  function advanceApp(id){
+  function advanceApp(id){ //Advance the application stage
+    console.log(id)
     const newApp = [...applicants] //copy to modify before setting new state
     const applicant = newApp.find(applicant => applicant.id === id)
     applicant.stage = applicant.stage + 1
     setApplicants(newApp)
    }
 
-  return (
+   function handleClear(id){ //Deletes Applicant
+    console.log(id)
+    const newApp = applicants.filter((applicant) => (applicant.id !== id))//copy to modify before setting new state
+    setApplicants(newApp)
+   }
+
+  return ( //displays applicant list
     <>
-    <ApplicantList applicants = {applicants} advanceApp={advanceApp}/>
+    <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}/>
     Name <input ref={applicantName} type="text" /> <br/>
     Job <input ref={applicantJob} type="text" /> <br/>
     <button onClick={handleAddApplicant}>Add Applicant</button>
-    <button>Clear Applicant</button>
     </>
      )
 }

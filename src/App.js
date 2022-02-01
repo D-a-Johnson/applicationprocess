@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import ApplicantList from './ApplicantList';
+import Dashboard from './Dashboard';
 import {v4 as uuidv4} from 'uuid';
 
 const LOCAL_STORAGE_KEY = 'applicantsApp'
@@ -31,7 +32,6 @@ function App() {
   }
 
   function advanceApp(id){ //Advance the application stage
-    console.log(id)
     const newApp = [...applicants] //copy to modify before setting new state
     const applicant = newApp.find(applicant => applicant.id === id)
     applicant.stage = applicant.stage + 1
@@ -39,19 +39,19 @@ function App() {
    }
 
    function handleClear(id){ //Deletes Applicant
-    console.log(id)
     const newApp = applicants.filter((applicant) => (applicant.id !== id))//copy to modify before setting new state
     setApplicants(newApp)
    }
 
   return ( //displays applicant list
     <>
-    <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}/>
-    <footer>
+    <Dashboard />
+    <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}></ApplicantList>
+    <header>
       Name <input ref={applicantName} type="text" /> <br/>
       Job <input ref={applicantJob} type="text" /> <br/>
       <button onClick={handleAddApplicant}>Add Applicant</button>
-    </footer>
+    </header>
     </>
      )
 }

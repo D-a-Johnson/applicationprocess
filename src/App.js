@@ -47,29 +47,13 @@ function App() {
   return ( //displays applicant list
     <>
     <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}/>
-    Name <input ref={applicantName} type="text" /> <br/>
-    Job <input ref={applicantJob} type="text" /> <br/>
-    <button onClick={handleAddApplicant}>Add Applicant</button>
+    <footer>
+      Name <input ref={applicantName} type="text" /> <br/>
+      Job <input ref={applicantJob} type="text" /> <br/>
+      <button onClick={handleAddApplicant}>Add Applicant</button>
+    </footer>
     </>
      )
 }
-
-        
-{/* <div className="main">
-<div className="header">
-</div>
-</div>
-<div className="main">
-<div className="header">
-</div>
-</div>
-<div className="main">
-<div className="header">
-</div>
-</div>
-<div className="main">
-<div className="header">
-</div>
-</div></> */}
 
 export default App;

@@ -19,10 +19,10 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(applicants)) //saves applicants to local storage
   } , [applicants])
 
-  function handleAddApplicant(n,j) {
+  function handleAddApplicant(n,j) { //adds an applicant
     const name = applicantName.current.value
     const job = applicantJob.current.value
-    if ((name === '') || (job === '')) return
+    if ((name === '') || (job === '')) return //checks that values exist
     setApplicants(prevApplicants => {
       return [...prevApplicants, {id: uuidv4(), name: name, job: job,stage: 1}]
     })

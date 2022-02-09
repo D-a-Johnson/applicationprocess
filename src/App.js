@@ -42,12 +42,11 @@ function App() {
     const newApp = applicants.filter((applicant) => (applicant.id !== id))//copy to modify before setting new state
     setApplicants(newApp)
    }
-//<ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}></ApplicantList>
   return ( //displays applicant list
     
     <>
     <Dashboard applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}/>
-    
+    <ApplicantList applicants = {applicants} advanceApp={advanceApp} handleClear={handleClear}></ApplicantList>
     <header>
       Name <input ref={applicantName} type="text" /> <br/>
       Job <input ref={applicantJob} type="text" /> <br/>
